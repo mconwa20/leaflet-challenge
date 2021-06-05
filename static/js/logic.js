@@ -1,5 +1,5 @@
 // Store our API endpoint inside queryUrl
-var queryUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_hour.geojson";
+var queryUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
 
 // Perform a GET request to the query URL
 d3.json(queryUrl, function(data) {
@@ -31,13 +31,17 @@ function createMap(earthquakes) {
   // Define streetmap and darkmap layers
   var streetmap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
     maxZoom: 18,
-    id: "mapbox.streets",
+    tileSize: 512,
+    zoomOffset: -1,
+    id: "mapbox/streets-v1",
     accessToken: API_KEY
   });
 
-  var darkmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
+  var darkmap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
     maxZoom: 18,
-    id: "mapbox.dark",
+    tileSize: 512,
+    zoomOffset: -1,
+    id: "mapbox/dark-v10",
     accessToken: API_KEY
   });
 
