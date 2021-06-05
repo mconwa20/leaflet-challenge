@@ -26,6 +26,8 @@ function createFeatures(earthquakeData) {
   createMap(earthquakes);
 }
 
+// some more needs to happen before this
+
 function createMap(earthquakes) {
 
   // Define streetmap and darkmap layers
